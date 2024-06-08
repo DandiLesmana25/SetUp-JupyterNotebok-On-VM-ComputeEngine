@@ -15,7 +15,7 @@
 ## Create Firewall rule
 | Name | firewall-allow-port-8888 |
 | --- | --- |
-| Target tags | allow-ports-jupyter-8888 |
+| Target tags | allow-port-jupyter-8888 |
 | Source Ip range | 0.0.0.0/0 |
 | Protocol and ports | TCP: 8888
 
