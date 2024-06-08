@@ -5,7 +5,7 @@
 | Region | us-central1 |
 | Zone | us-central1-a |
 | Machine series | N1 |
-| Machine type | n1-standard-1 |
+| Machine type | n1-standard-4 (4 vCPU, 2 core, 15 GB memory) |
 | Boot disk | Ubuntu 20.04 LTS |
 | Size boot disk | 20 GB |
 | Firewall | Allow HTTP traffic & Allow HTTPS traffic 
