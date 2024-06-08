@@ -20,15 +20,28 @@
 
 
 
-## set up on vm
+## set up jupyter on vm
 ### SSH to VM
     gcloud compute ssh --project=PROJECT_ID --zone=ZONE jupyter-server
 ### update OS
     sudo apt-get update
 ### install pip ( package manager python )
     sudo apt install python3-pip
-
 ### install jupyter on vm
     pip install jupyter
+### generate a jupyter notebook configuration file 
+    jupyter notebook --generate-config
+### edit config file
+     nano /home/path/.jupyter/jupyter_notebook_config.py
+### you can simply copy and paste these lines at the beginning of the configuration file
+    c.NotebookApp.token = ''
+    c.NotebookApp.ip = '*'
+    c.NotebookApp.open_browser = False
+    c.NotebookApp.port = 8888
+### SAVE => control + x to exit and press Y to save changes then press enter.
 ### Run jupyter on vm
     jupyter notebook
+
+### open a new browser and enter your IP address and port number as it is
+    http://34.122.224.36:8888
+## Done
