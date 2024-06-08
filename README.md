@@ -9,7 +9,8 @@
 | Boot disk | Ubuntu 20.04 LTS |
 | Size boot disk | 20 GB |
 | Firewall | Allow HTTP traffic & Allow HTTPS traffic 
-| Network-tag | allow-ports-jupyter-8888
+| Install Ops Agent for Monitoring and Logging | check
+| Network-tag | allow-port-jupyter-8888
 
 ## Create Firewall rule
 | Name | firewall-allow-port-8888 |
@@ -52,3 +53,30 @@
 Saat Kita close SSH, proses notebook akan berhenti. Jika Kita ingin proses ini dijalankan terus-menerus di virtual mesin, Kita perlu mengonversi proses ini ke Linux service.
 ### Step 1: Tambahkan file baru dengan nama "jupyter.service" di "/etc/systemd/system/"
     nano /etc/systemd/system/jupyter.service
+### Tambahkan code berikut didalamnnya
+    [Unit]
+    Description=Jupyter Notebook
+    
+    [Service]
+    Type=simple
+    PIDFile=/run/jupyter.pid
+    ExecStart=/home/username/.local/bin/jupyter-notebook ---config=/home/username/.jupyter/jupyter_notebook_config.py
+    User=<username>
+    Group=google-sudoers
+    WorkingDirectory=/home/<username>/
+    Restart=always
+    RestartSec=10
+    
+    [Install]
+    WantedBy=multi-user.target
+### we need to reload daemon so linux system will see our new jupyter.service file
+    sudo systemctl daemon-reload
+### we need to make this service started when Linux makes a restart so run this command
+    sudo systemctl enable jupyter
+### start jupyter service
+    sudo systemctl start jupyter
+### check if jupyter service is running
+    sudo systemctl status jupyter
+## All already done
+    
+    
