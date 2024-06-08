@@ -31,8 +31,10 @@
     pip install jupyter
 ### generate a jupyter notebook configuration file 
     jupyter notebook --generate-config
+#### output
+    /home/dandiserver/.jupyter/jupyter_notebook_config.py
 ### edit config file
-     nano /home/path/.jupyter/jupyter_notebook_config.py
+     nano /home/dandiserver/.jupyter/jupyter_notebook_config.py
 ### you can simply copy and paste these lines at the beginning of the configuration file
     c.NotebookApp.token = ''
     c.NotebookApp.ip = '*'
