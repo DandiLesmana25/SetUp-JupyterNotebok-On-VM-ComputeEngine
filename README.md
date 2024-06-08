@@ -47,3 +47,8 @@
 ### open a new browser and enter your IP address and port number as it is
     http://34.122.224.36:8888
 ## Done
+
+# Run Jupiter Notebook as a service
+Saat Kita close SSH, proses notebook akan berhenti. Jika Kita ingin proses ini dijalankan terus-menerus di virtual mesin, Kita perlu mengonversi proses ini ke Linux service.
+### Step 1: Tambahkan file baru dengan nama "jupyter.service" di "/etc/systemd/system/"
+    nano /etc/systemd/system/jupyter.service
